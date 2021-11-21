@@ -1,0 +1,73 @@
+section.container.admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // align-items: center;
+  width: 100%;
+
+  >h1{
+    font-size: 1.4rem;
+    color: #626262;
+  }
+
+  >form{
+    max-width: 50rem;
+
+    >div >.btn.btn-primary.admin {
+      border: none;
+      background-color: rgba(244, 98, 33, 1);
+      // min-width: 30rem;
+    }
+  }
+
+  >table >thead >tr >th.responsive,
+  >table >tbody >tr >td.responsive {
+    
+    @media only screen and (max-width: 410px) {
+      display: none;
+    }
+  }
+}
+
+section.container.admin.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: -10vh;
+  // border: 2px solid orange;
+
+  >form{
+    // background-color: orangered;
+    min-width: 30rem;
+    margin-bottom: 2rem;
+    @media only screen and (max-width: 540px) {
+      min-width: 100%;
+    }
+
+    >div.actions.admin {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    >div.actions.admin >.btn.btn-primary.admin {
+      border: none;
+      background-color: rgba(244, 98, 33, 1);
+      min-width: 30rem;
+
+      @media only screen and (max-width: 540px) {
+        min-width: 100%;
+      }
+    }
+  }
+
+  >a{
+    font-size: .8rem;
+  }
+}
+
+
+
+

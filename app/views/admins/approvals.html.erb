@@ -1,23 +1,29 @@
-<div class="card-container-table">
-  <%# data on %>
+<%= render 'admins/nav-admin' %>
+<section class="container admin">
   <% if @users.empty? %>
   <h1>No Pending Approvals</h1>
-  <% end %>
-  <div class="card-item headers market">
-    <h5 class="default">ID</h5>
-    <h5 class="default">Username</h5>
-    <h5>Email</h5>
-    <h5 class="default">Action</h5>
-  </div>
+  <% else %>
+  <h1>Pending Approvals</h1>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col" class="responsive">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
 
-  <%# loop all data here %>
-  <% @users.each do |user| %>
-  <div>
-    <h5><%= user.id %></h5>
-    <h5><%= user.username %></h5>
-    <h5><%= user.email %></h5>
-    <%= link_to "Admit",  admins_approvals_path(id: user.id, admitted: true), method: :put %>
-  </div>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th scope="row"><%= user.id %></th>
+        <td class="responsive"><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to "Admit",  admins_approvals_path(id: user.id, admitted: true), method: :put %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
   <% end %>
-  </div>
 </div>

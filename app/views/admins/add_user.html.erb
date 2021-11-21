@@ -1,13 +1,33 @@
-<%= form_with scope: :user, url: '/admins/add_user', method: :post  do |f| %>
-  <div>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
-    <%= f.text_field :first_name, autofocus: true, autocomplete: :off, placeholder: "First Name" %>
-    <%= f.text_field :last_name, autofocus: true, autocomplete: :off, placeholder: "Last Name" %>
-    <%= f.text_field :username, autofocus: true, autocomplete: :off, placeholder: "Username" %>
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (6 characters minimum)" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password" %>
-  </div>
-  <div>
-    <%= f.submit "Create Account" %>
-  </div>
-<% end %>
+<%= render 'admins/nav-admin' %>
+<section class="container admin">
+  <h1>Create User Account</h1>
+  <%= form_with scope: :user, url: '/admins/add_user', method: :post  do |f| %>
+    <div class="form-group">
+      <label>Email address</label>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>First Name</label>
+      <%= f.text_field :first_name, autofocus: true, autocomplete: :off, placeholder: "First Name", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <%= f.text_field :last_name, autofocus: true, autocomplete: :off, placeholder: "Last Name", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>Username</label>
+      <%= f.text_field :username, autofocus: true, autocomplete: :off, placeholder: "Username", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (6 characters minimum)", class: "form-control" %>
+      <br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: "form-control" %>
+    </div>
+    <div>
+      <%= f.submit "Create Account", class:"btn btn-primary admin"%>
+    </div>
+  <% end %>
+</section>
+
+

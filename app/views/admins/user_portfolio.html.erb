@@ -1,37 +1,30 @@
 <%= csrf_meta_tags %>
-
 <%= render 'admins/nav-admin' %>
-<h1> Admin Center <h1>
+<section class="container admin">
+  <% if @users.empty? %>
+  <h1>No Approved Users yet</h1>
+  <% else %>
+  <h1>All Users List</h1>
+  <table class="table admin">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col" class="responsive">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
 
-<section>
-  <section>
-    <div>
-      <h1>User List</h1> 
-      <%= link_to 'Create User', admins_add_user_path %>
-    </div> 
-    <%# add user path should have views and controller %>
-     <%= link_to "Pending Approvals", admins_approvals_path, method: 'get'%>
-    <div>
-      <% if @users.empty? %>
-      <h1>No Users Approved Yet</h1>
-      <% else %>
-        <div>
-          <tr>
-            <td>Email</td>
-          </tr>
-        </div>
-      <%# loop all data here for the approved accounts %>
-      <table>
-        <% @users.each do |user| %>
-          <tr>
-            <td><%= user.email %>
-            <td><% user.approved %>
-            <td><%= link_to "View", user_profile_path(user) %>
-          </tr>
-        <% end %>
-      </table>
-       <% end %>
-  </section>
-</section>
-
-<%= link_to "Sign out for Admin", destroy_admin_session_path, method: :delete%>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th scope="row"><%= user.id %></th>
+        <td class="responsive"><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to "View", user_profile_path(user) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <% end %>
+</div>
