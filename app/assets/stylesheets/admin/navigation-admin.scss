@@ -1,0 +1,30 @@
+.navbar.admin{
+  margin-bottom: 3rem;
+}
+
+.nav-item.admin {
+  display: flex;
+  align-items: center;
+  >a {
+    padding: .4rem .6rem;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    margin-right: 1rem;
+    transition: .3s;
+    &:hover{
+      color: white;
+      background-color: rgba(244, 98, 33, 1);
+    }
+  }
+
+}
+
+.admin-logo{
+  height: 5rem;
+  margin-right: 2rem;
+
+  @media only screen and (max-width: 410px) {
+    height: 4rem;
+  }
+}

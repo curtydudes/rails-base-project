@@ -1,22 +1,36 @@
-<h3>User Account Information</h3>
-  <section>
-    <div >
-      <h3>Username: </h3>
-      <h5><%= @user.username %></h5>
-    </div>
-    <div>
-      <h3>Email: </h3>
-      <h5><%= @user.email %></h5>
-    </div>
-    <div>
-      <h3>Account Created: </h3>
-      <h5><%= @user.created_at %></h5>
-    </div>
-    <div>
-      <h3>Last Updated: </h3>
-      <h5><%= @user.updated_at %></h5>
-    </div>
+<%= csrf_meta_tags %>
+<%= render 'admins/nav-admin' %>
+<section class="container admin">
+  <h1>User Information</h1>
+  <table class="table admin">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
 
-    <%= link_to "Edit", edit_user_profile_path(@user) %>
-    <%= link_to "Cancel and go back to admin home", admins_user_portfolio_path %>
-  </section>
+    <tbody>
+      <tr>
+        <td>ID</td>
+        <td><%= @user.id %></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <td>Username</td>
+        <td><%= @user.username %></td>
+      </tr>
+      <tr>
+        <td>Account Created Date</td>
+        <td><%= @user.created_at %></td>
+      </tr>
+      <tr>
+        <td>Last Update</td>
+        <td><%= @user.updated_at %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
