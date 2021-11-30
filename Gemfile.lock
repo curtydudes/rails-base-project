@@ -105,6 +105,8 @@ GEM
     faraday_middleware (1.1.0)
       faraday (~> 1.0)
     ffi (1.15.4)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     font-awesome-rails (4.7.0.7)
       railties (>= 3.2, < 7)
     globalid (0.5.2)
@@ -310,6 +312,7 @@ DEPENDENCIES
   database_rewinder
   devise
   factory_bot_rails
+  figaro (~> 1.2)
   font-awesome-rails
   hamlit-rails
   iex-ruby-client
