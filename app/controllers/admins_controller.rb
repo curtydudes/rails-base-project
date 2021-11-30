@@ -12,8 +12,9 @@ class AdminsController < ApplicationController
     @user.update(approved: true)
     @user.save
     if @user.save
-      ApproveMailer.approve_account_mailer(@user).deliver_later
+      ApproveMailer.with(email: @user.email).approve_account_mailer.deliver_now
       redirect_to admins_user_portfolio_path fallback_location: admins_add_user_path, success: 'User Approved'
+      flash[:notice] = 'Successfully approved trader registration'
     else
       redirect_to admins_user_portfolio_path fallback_location: admins_add_user_path, danger: 'Approval failed'
     end
@@ -27,8 +28,9 @@ class AdminsController < ApplicationController
     @user = User.new(params.require(:user).permit(:email, :password, :confirm_password, :first_name, :last_name, :username))
     @user.save
     if @user.save
-      ApproveMailer.approve_account_mailer(@user).deliver_now
+      ApproveMailer.with(email: @user.email).approve_account_mailer.deliver_now
       redirect_back fallback_location: admins_add_user_path, success: 'User Created'
+      flash[:notice] = 'Successfully created a new trader account'
     else
       redirect_back fallback_location: admins_add_user_path, danger: 'Error in creating a user'
     end
