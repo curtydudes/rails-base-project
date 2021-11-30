@@ -109,29 +109,9 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.action_mailer.delivery_method = :smtp
-  host = 'https://rails-stock-trading-app.herokuapp.com/' #replace with your own url
-  config.action_mailer.default_url_options = { host: host }
+  
+  config.action_mailer.default_url_options = { host: 'https://rails-stock-trading-app.herokuapp.com/' }
+  config.action_mailer.perform_deliveries = true
+  config.active_job.queue_adapter = :async
 
-  # SMTP settings for gmail
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :user_name            => 'pickystocker@gmail.com',
-    :password             => 'usmlfvsnmcidtpyg',
-    :authentication       => "plain",
-    :enable_starttls_auto => true
-  }
-
-  # SMTP setting for mail trap
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   :user_name => 'c01a01d1e19eb2',
-  #   :password => '1a83df53891213',
-  #   :address => 'smtp.mailtrap.io',
-  #   :domain => 'smtp.mailtrap.io',
-  #   :port => '25',
-  #   :authentication => :cram_md5
-  # }
 end
