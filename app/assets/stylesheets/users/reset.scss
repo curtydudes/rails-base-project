@@ -20,3 +20,21 @@ body{
   width: 100%;
   // background-color: $color-body-background;
 }
+
+a{
+  font-family: 'Montserrat', sans-serif;
+  color: $color-black;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+button{
+  outline: none;
+  background-color: none;
+  border-style: none;
+  border: none;
+  padding: 0;
+}
