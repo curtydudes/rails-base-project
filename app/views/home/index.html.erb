@@ -1,0 +1,26 @@
+<div class ="main_container_home_page">
+<section id="hero" class="hero d-flex align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 d-flex flex-column justify-content-center">
+        <h1 id = "hero__text"> Welcome to<br> 
+          Stock Flame</h1>
+        <h2>Don't let your savings</br>go to flames</h2>
+      <div>
+      <div class="text-center text-lg-start">
+        <% if user_signed_in? %>
+        <button type="button" class="btn btn-primary", id = "btn-cta"><%= link_to 'Portflolio',my_portfolio_path %></button>
+        <% else %>
+        <button type="button" class="btn btn-primary", id = "btn-cta"><%= link_to 'Get Started', new_user_registration_path %></button>
+        <% end %>
+      </div>
+      </div>
+      </div>
+      <div class="col-lg-6 hero-img">
+        <%= image_tag("hero-img.png", :alt => "PickyStocker hero image", :class => "home_page_image") %>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
